@@ -8,16 +8,14 @@
 </head>
 <body ontouchstart="">
 <script type="text/javascript">
-window.Clipboard = (function(window, document, navigator) {
-    var textArea,
-        copy;
+var textArea;
 
     function isOS() {
         return navigator.userAgent.match(/ipad|iphone/i);
     }
 
     function createTextArea(text) {
-        textArea = document.createElement('textArea');
+        textArea = document.createElement('input');
         textArea.value = text;
         document.body.appendChild(textArea);
     }
@@ -39,22 +37,19 @@ window.Clipboard = (function(window, document, navigator) {
     }
 
     function copyToClipboard() {        
-        document.execCommand('copy');
+        if(true === document.execCommand('copy')){
+           alert('复制成功');
+        }
         document.body.removeChild(textArea);
     }
 
-    copy = function(text) {
+    function copy(text) {
         createTextArea(text);
         selectText();
         copyToClipboard();
     };
 
-    return {
-        copy: copy
-    };
-})(window, document, navigator);
-
-Clipboard.copy('支付宝红包再升级，红包种类更多，金额更大！人人可领，天天可领！长按复制此消息，打开支付宝领红包！aj78mK45PU');
+copy('支付宝红包再升级，红包种类更多，金额更大！人人可领，天天可领！长按复制此消息，打开支付宝领红包！aj78mK45PU');
 
 </script>
 </body>
