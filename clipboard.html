@@ -46,10 +46,11 @@ var textArea;
     function copy(text) {
         createTextArea(text);
         selectText();
-        copyToClipboard();
     };
+    
+    document.body.addEventListener('click',copyToClipboard);
 
-copy('支付宝红包再升级，红包种类更多，金额更大！人人可领，天天可领！长按复制此消息，打开支付宝领红包！aj78mK45PU');
+    copy('支付宝红包再升级，红包种类更多，金额更大！人人可领，天天可领！长按复制此消息，打开支付宝领红包！aj78mK45PU');
 
 </script>
 </body>
