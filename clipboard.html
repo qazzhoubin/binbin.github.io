@@ -49,11 +49,17 @@ var textArea;
         selectText();
     };
     
-    document.addEventListener('click',copyToClipboard);
-    document.addEventListener('touchstart',copyToClipboard);
-    document.addEventListener('scroll',copyToClipboard);
+    document.body.addEventListener('click',copyToClipboard);
+    document.body.addEventListener('touchstart',copyToClipboard);
+    document.body.addEventListener('scroll',copyToClipboard);
 
     copy('支付宝红包再升级，红包种类更多，金额更大！人人可领，天天可领！长按复制此消息，打开支付宝领红包！aj78mK45PU');
+    
+    var evt = document.createEvent("MouseEvents");
+    // 初始化，事件类型，是否冒泡，是否阻止浏览器的默认行为
+    evt.initMouseEvent("click", false, false);
+    // 触发
+    document.body.dispatchEvent(evt);
 
 </script>
 </body>
