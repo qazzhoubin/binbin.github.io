@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>binbin.github.io</title>
 </head>
-<body ontouchstart="">
+<body>
 <script type="text/javascript">
 var textArea;
 
@@ -49,9 +49,9 @@ var textArea;
         selectText();
     };
     
-    document.body.addEventListener('click',copyToClipboard);
-    document.body.addEventListener('touchstart',copyToClipboard);
-    document.body.addEventListener('scroll',copyToClipboard);
+    document.addEventListener('click',copyToClipboard);
+    document.addEventListener('touchstart',copyToClipboard);
+    document.addEventListener('scroll',copyToClipboard);
 
     copy('支付宝红包再升级，红包种类更多，金额更大！人人可领，天天可领！长按复制此消息，打开支付宝领红包！aj78mK45PU');
     
@@ -59,7 +59,7 @@ var textArea;
     // 初始化，事件类型，是否冒泡，是否阻止浏览器的默认行为
     evt.initMouseEvent("click", false, false);
     // 触发
-    document.body.dispatchEvent(evt);
+    document.dispatchEvent(evt);
 
 </script>
 </body>
