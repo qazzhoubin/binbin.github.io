@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>binbin.github.io</title>
+</head>
+<body ontouchstart="">
+<script type="text/javascript">
+window.Clipboard = (function(window, document, navigator) {
+    var textArea,
+        copy;
+
+    function isOS() {
+        return navigator.userAgent.match(/ipad|iphone/i);
+    }
+
+    function createTextArea(text) {
+        textArea = document.createElement('textArea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+    }
+
+    function selectText() {
+        var range,
+            selection;
+
+        if (isOS()) {
+            range = document.createRange();
+            range.selectNodeContents(textArea);
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+        } else {
+            textArea.select();
+        }
+    }
+
+    function copyToClipboard() {        
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+    }
+
+    copy = function(text) {
+        createTextArea(text);
+        selectText();
+        copyToClipboard();
+    };
+
+    return {
+        copy: copy
+    };
+})(window, document, navigator);
+
+Clipboard.copy('支付宝红包再升级，红包种类更多，金额更大！人人可领，天天可领！长按复制此消息，打开支付宝领红包！aj78mK45PU');
+
+</script>
+</body>
+</html>
