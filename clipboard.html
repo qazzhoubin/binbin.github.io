@@ -36,11 +36,12 @@ var textArea;
         }
     }
 
-    function copyToClipboard() {        
+    function copyToClipboard() {
+        textArea.focus();
         if(true === document.execCommand('copy')){
            alert('复制成功');
         }
-        document.body.removeChild(textArea);
+        //document.body.removeChild(textArea);
     }
 
     function copy(text) {
